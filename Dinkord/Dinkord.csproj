@@ -2,26 +2,26 @@
 
     <PropertyGroup>
         <TargetFramework>net48</TargetFramework>
-        <AssemblyName>dev.funlennysub.pacinfo</AssemblyName>
-        <Description>Dinkum mod that can show you the weight and price of a carriable(Ruby, Amber Chunk, etc.)</Description>
-        <Version>1.0.0</Version>
+        <AssemblyName>dev.funlennysub.dinkord</AssemblyName>
+        <Description>Dinkum mod which adds support for Discord Rich Presence.</Description>
+        <Version>1.1.1</Version>
         <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
         <LangVersion>latest</LangVersion>
-        <PackageId>funlennysub.pacinfo</PackageId>
-        <Product>PaCInfo</Product>
+        <PackageId>funlennysub.dinkord</PackageId>
+        <Product>Dinkord</Product>
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="BepInEx.Analyzers" Version="1.*" PrivateAssets="all" />
+        <PackageReference Include="BepInEx.Analyzers" Version="1.0.8" PrivateAssets="all" />
         <PackageReference Include="BepInEx.Unity" Version="6.0.0-*" IncludeAssets="compile" />
-        <PackageReference Include="BepInEx.PluginInfoProps" Version="1.*" />
+        <PackageReference Include="BepInEx.PluginInfoProps" Version="1.1.0" />
         <PackageReference Include="UnityEngine.Modules" Version="2020.3.17" IncludeAssets="compile" />
     </ItemGroup>
 
     <ItemGroup Condition="'$(TargetFramework.TrimEnd(`0123456789`))' == 'net'">
         <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" Version="1.0.2" PrivateAssets="all" />
     </ItemGroup>
-    
+
     <ItemGroup>
         <Reference Include="0Harmony">
             <HintPath>../lib/BepInEx/0Harmony.dll</HintPath>
@@ -32,11 +32,11 @@
         <Reference Include="Mirror-nstrip">
             <HintPath>../lib/dinkum/strip/Mirror-nstrip.dll</HintPath>
         </Reference>
+        <Reference Include="UnityEngine-nstrip">
+            <HintPath>../lib/dinkum/strip/UnityEngine-nstrip.dll</HintPath>
+        </Reference>
         <Reference Include="UnityEngine.CoreModule-nstrip">
             <HintPath>../lib/dinkum/strip/UnityEngine.CoreModule-nstrip.dll</HintPath>
-        </Reference>
-        <Reference Include="UnityEngine.InputLegacyModule-nstrip">
-            <HintPath>../lib/dinkum/strip/UnityEngine.InputLegacyModule-nstrip.dll</HintPath>
         </Reference>
     </ItemGroup>
 </Project>
