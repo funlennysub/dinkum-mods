@@ -18,9 +18,14 @@ public class Plugin : BaseUnityPlugin
 		// Plugin startup logic
 		Logger.LogInfo($"Plugin {PluginInfo.PLUGIN_GUID} is loaded!");
 	}
+
+	private void OnDestroy()
+	{
+		_harmony.UnpatchSelf();
+	}
 }
 
-[HarmonyPatch, HarmonyDebug]
+[HarmonyPatch]
 public static class SteamLobbySearchForLobbies
 {
 	[HarmonyTranspiler, HarmonyPatch(typeof(SteamLobby), nameof(SteamLobby.searchForLobbies))]
@@ -38,6 +43,7 @@ public static class SteamLobbySearchForLobbies
 			       new CodeMatch(OpCodes.Ldloc_1),
 			       new CodeMatch(i => i.opcode == OpCodes.Blt),
 			       new CodeMatch(i => i.opcode == OpCodes.Br))
+		       .Advance(1)
 		       .Insert(
 			       new CodeInstruction(OpCodes.Ldc_I4_3),
 			       new CodeInstruction(OpCodes.Call,
