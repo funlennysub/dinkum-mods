@@ -4,38 +4,38 @@ using UnityEngine;
 
 namespace Dinkord.Discord.Core
 {
-	public partial struct ImageHandle
-	{
-		public static ImageHandle User(long id)
-		{
-			return User(id, 128);
-		}
+    public partial struct ImageHandle
+    {
+        public static ImageHandle User(long id)
+        {
+            return User(id, 128);
+        }
 
-		public static ImageHandle User(long id, uint size)
-		{
-			return new ImageHandle
-			{
-				Type = ImageType.User,
-				Id = id,
-				Size = size
-			};
-		}
-	}
+        public static ImageHandle User(long id, uint size)
+        {
+            return new ImageHandle
+            {
+                Type = ImageType.User,
+                Id = id,
+                Size = size
+            };
+        }
+    }
 
-	public partial class ImageManager
-	{
-		public void Fetch(ImageHandle handle, FetchHandler callback)
-		{
-			Fetch(handle, false, callback);
-		}
+    public partial class ImageManager
+    {
+        public void Fetch(ImageHandle handle, FetchHandler callback)
+        {
+            Fetch(handle, false, callback);
+        }
 
-		public byte[] GetData(ImageHandle handle)
-		{
-			var dimensions = GetDimensions(handle);
-			var data = new byte[dimensions.Width * dimensions.Height * 4];
-			GetData(handle, data);
-			return data;
-		}
+        public byte[] GetData(ImageHandle handle)
+        {
+            var dimensions = GetDimensions(handle);
+            var data = new byte[dimensions.Width * dimensions.Height * 4];
+            GetData(handle, data);
+            return data;
+        }
 
 #if UNITY_EDITOR || UNITY_STANDALONE
         public Texture2D GetTexture(ImageHandle handle)
@@ -47,5 +47,5 @@ namespace Dinkord.Discord.Core
             return texture;
         }
 #endif
-	}
+    }
 }

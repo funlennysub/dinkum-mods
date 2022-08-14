@@ -10,10 +10,12 @@ Dinkum mod that can show you the weight and price of a carriable(Ruby, Amber Chu
   these [steps](https://docs.bepinex.dev/master/articles/user_guide/installation/unity_mono.html?tabs=tabid-win).
 
 ### Configuration
+
 Mod comes with several options you can use:
+
 - `WeightDisplayType`
-  - Acceptable values: Estimate, Exact
+    - Acceptable values: Estimate, Exact
 - `PriceDisplayType`
-  - Acceptable values: Estimate, Exact
+    - Acceptable values: Estimate, Exact
 - `InfoDisplayType`
-  - Acceptable values: Weight, Price, Both
+    - Acceptable values: Weight, Price, Both
