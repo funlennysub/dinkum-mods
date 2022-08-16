@@ -19,9 +19,9 @@ public class RichPresence
     private readonly Core.Discord _discord;
 
     private readonly long _startTime;
-    private Activity _activity;
 
     private readonly State _state;
+    private Activity _activity;
 
     public RichPresence()
     {

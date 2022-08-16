@@ -7,8 +7,8 @@ using Random = UnityEngine.Random;
 
 namespace PaCInfo;
 
-[BepInPlugin(PluginInfo.PLUGIN_GUID, PluginInfo.PLUGIN_NAME, PluginInfo.PLUGIN_VERSION)]
-public class Plugin : BaseUnityPlugin
+[BepInAutoPlugin]
+public partial class Plugin : BaseUnityPlugin
 {
     public static ConfigEntry<WeightDisplayType> WeightDisplayType;
     public static ConfigEntry<PriceDisplayType> PriceDisplayType;
@@ -23,7 +23,7 @@ public class Plugin : BaseUnityPlugin
         InfoDisplayType = Config.Bind("General", "InfoDisplayType", PaCInfo.InfoDisplayType.Both, "Info display type");
 
         _harmony = Harmony.CreateAndPatchAll(typeof(PickupPatch));
-        Logger.LogInfo($"Plugin {PluginInfo.PLUGIN_GUID} is loaded!");
+        Logger.LogInfo($"Plugin {Id} is loaded!");
     }
 
     private void OnDestroy()

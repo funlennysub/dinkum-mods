@@ -7,8 +7,8 @@ using UnityEngine;
 
 namespace WorldwideGamesList;
 
-[BepInPlugin(PluginInfo.PLUGIN_GUID, PluginInfo.PLUGIN_NAME, PluginInfo.PLUGIN_VERSION)]
-public class Plugin : BaseUnityPlugin
+[BepInAutoPlugin]
+public partial class Plugin : BaseUnityPlugin
 {
     private static Harmony _harmony;
 
@@ -16,7 +16,7 @@ public class Plugin : BaseUnityPlugin
     {
         _harmony = Harmony.CreateAndPatchAll(typeof(SteamLobbySearchForLobbies));
         // Plugin startup logic
-        Logger.LogInfo($"Plugin {PluginInfo.PLUGIN_GUID} is loaded!");
+        Logger.LogInfo($"Plugin {Id} is loaded!");
     }
 
     private void OnDestroy()
