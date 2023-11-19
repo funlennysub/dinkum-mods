@@ -90,9 +90,9 @@ internal class PickupPatch
 
     [HarmonyPostfix]
     [HarmonyPatch(typeof(CharPickUp), nameof(CharPickUp.CmdPickUpObject))]
-    private static void PickUpPatch(CharPickUp __instance, uint pickUpObject)
+    private static void PickUpPatch(CharPickUp __instance, uint pickedUpObjectNetId)
     {
-        var spawned = NetworkIdentity.spawned[pickUpObject];
+        var spawned = NetworkIdentity.spawned[pickedUpObjectNetId];
         if (spawned is null) return;
 
         var carriable = spawned.gameObject;
